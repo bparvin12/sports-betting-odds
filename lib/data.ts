@@ -11,27 +11,27 @@ import portalMeta from '@/public/portal_metagenics.png';
 export const links = [
   {
     name: 'Home',
-    hash: '#home',
+    src: '/',
   },
   {
-    name: 'About',
-    hash: '#about',
+    name: 'football',
+    src: 'football',
   },
   {
-    name: 'Experience',
-    hash: '#experience',
+    name: 'basketball',
+    src: 'basketball',
   },
   {
-    name: 'Skills',
-    hash: '#skills',
+    name: 'hockey',
+    src: 'hockey',
   },
   {
-    name: 'Projects',
-    hash: '#projects',
+    name: 'soccer',
+    src: 'soccer',
   },
   {
-    name: 'Contact',
-    hash: '#contact',
+    name: 'tennis',
+    src: 'tennis',
   },
 ] as const;
 

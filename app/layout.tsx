@@ -14,12 +14,12 @@ import ThemeContextProvider from '@/context/theme-context';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '{ bparvin } | Portfolio',
+  title: 'Sports Betting Odds | { biaji }',
   description:
-    'Bijan is a Frontend Software Developer with 5+ years of experience. Here is a portfolio showcasing his professional and personal experience. Browse his journey.',
-  metadataBase: new URL('https://bijan-parvin-portfolio-fe.vercel.app/'),
-  applicationName: "bparvin's portfolio",
-  authors: { name: 'Bijan Parvin' },
+    'Sports Betting Odds and Spreads for all in-season sports. NFL, NHL, NBA, etc.',
+  // metadataBase: new URL('https://bijan-parvin-portfolio-fe.vercel.app/'),
+  applicationName: 'Sports Betting Odds | { biaji }',
+  authors: { name: 'biaji' },
   generator: 'react, nextjs, vercel, tailwind, typescript',
   keywords: [
     'react',
@@ -30,22 +30,22 @@ export const metadata: Metadata = {
     'portfolio',
   ],
   themeColor: 'dark',
-  creator: 'Bijan Parvin',
+  creator: 'biaji',
   openGraph: {
     type: 'website',
-    title: '{ bparvin } | Portfolio',
+    title: 'Sports Betting Odds | { biaji }',
     description:
-      'Bijan is a Frontend Software Developer with 5+ years of experience. Here is a portfolio showcasing his professional and personal experience. Browse his journey.',
+      'Sports Betting Odds and Spreads for all in-season sports. NFL, NHL, NBA, etc.',
     emails: 'bparvin12@gmail.com',
-    siteName: '{ bparvin } | Portfolio',
+    siteName: 'Sports Betting Odds | { biaji }',
     locale: 'en-US',
     url: 'https://bijan-parvin-portfolio-fe.vercel.app/',
   },
   twitter: {
-    site: '{ bparvin } | Portfolio',
-    creator: 'Bijan Parvin',
+    site: 'Sports Betting Odds | { biaji }',
+    creator: 'biaji',
     description:
-      'Bijan is a Frontend Software Developer with 5+ years of experience. Here is a portfolio showcasing his professional and personal experience. Browse his journey.',
+      'Sports Betting Odds and Spreads for all in-season sports. NFL, NHL, NBA, etc.',
   },
 };
 
@@ -71,7 +71,9 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
-            <GoogleAnalytics gaId="G-056KJYPZ0M" />
+            <GoogleAnalytics
+              gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+            />
 
             <Toaster position="top-right" />
             <ThemeSwitch />

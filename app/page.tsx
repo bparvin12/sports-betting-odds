@@ -1,23 +1,35 @@
-import About from '@/components/about';
-import Contact from '@/components/contact';
-import Experience from '@/components/experience';
-import FunProjects from '@/components/fun-projects';
-import Intro from '@/components/intro';
-import Projects from '@/components/projects';
-import SectionDivider from '@/components/section-divider';
-import Skills from '@/components/skills';
+import { Suspense } from 'react';
 
-export default function Home() {
+import SportCategories from '@/components/sport-categories';
+
+async function getSportsCategories() {
+  // https://app.swaggerhub.com/apis-docs/the-odds-api/odds-api/4#/
+  try {
+    const params = new URLSearchParams({
+      apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY}`,
+      all: 'false',
+    });
+    const response = await fetch(
+      `https://api.the-odds-api.com/v4/sports?${params}`,
+    );
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching sports data:', error);
+    throw error;
+  }
+}
+
+export default async function Home() {
+  const sportsCategories = await getSportsCategories();
+  console.log(sportsCategories);
   return (
     <main className="flex flex-col items-center px-4">
-      <Intro />
-      <SectionDivider />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <FunProjects />
-      <Contact />
+      <Suspense fallback={<p>Loading feed...</p>}>
+        <SportCategories sportsCategories={sportsCategories} />
+      </Suspense>
     </main>
   );
 }
