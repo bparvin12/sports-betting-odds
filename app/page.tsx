@@ -24,7 +24,6 @@ async function getSportsCategories() {
 
 export default async function Home() {
   const sportsCategories = await getSportsCategories();
-  console.log(sportsCategories);
   return (
     <main className="flex flex-col items-center px-4">
       <Suspense fallback={<p>Loading feed...</p>}>
