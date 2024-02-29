@@ -17,7 +17,10 @@ export default function SportCategory({
   has_outrights,
 }: SportsEvent) {
   return (
-    <li className="flex justify-between gap-x-6 py-5" key={uniqueKey}>
+    <li
+      className="flex cursor-pointer justify-between gap-x-6 p-3 hover:bg-tan/90 dark:hover:bg-white/20"
+      key={uniqueKey}
+    >
       <div className="flex min-w-0 gap-x-4">
         <div className="min-w-0 flex-auto">
           <p className="mt-1 truncate text-xs leading-5">{title}</p>
