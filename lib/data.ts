@@ -14,24 +14,24 @@ export const links = [
     src: '/',
   },
   {
-    name: 'football',
-    src: 'football',
+    name: 'nfl',
+    src: 'nfl',
   },
   {
-    name: 'basketball',
-    src: 'basketball',
+    name: 'nba',
+    src: 'nba',
   },
   {
-    name: 'hockey',
-    src: 'hockey',
+    name: 'nhl',
+    src: 'nhl',
   },
   {
-    name: 'soccer',
-    src: 'soccer',
+    name: 'epl',
+    src: 'epl',
   },
   {
-    name: 'tennis',
-    src: 'tennis',
+    name: 'pga',
+    src: 'pga',
   },
 ] as const;
 
