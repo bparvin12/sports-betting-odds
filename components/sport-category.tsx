@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export type SportsEvent = {
@@ -17,18 +18,21 @@ export default function SportCategory({
   has_outrights,
 }: SportsEvent) {
   return (
-    <li
-      className="flex cursor-pointer justify-between gap-x-6 p-3 hover:bg-tan/90 dark:hover:bg-white/20"
-      key={uniqueKey}
-    >
-      <div className="flex min-w-0 gap-x-4">
-        <div className="min-w-0 flex-auto">
-          <p className="mt-1 truncate text-xs leading-5">{title}</p>
+    <Link href={`/sport/${uniqueKey}`}>
+      <li
+        className="flex cursor-pointer justify-between gap-x-6 p-3 hover:bg-tan/90 dark:hover:bg-white/20"
+        key={uniqueKey}
+      >
+        <div className="flex min-w-0 gap-x-4">
+          <div className="min-w-0 flex-auto">
+            <p className="mt-1 truncate text-xs leading-5">{title}</p>
+          </div>
         </div>
-      </div>
-      <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-        <p className="text-sm leading-6">{description}</p>
-      </div>
-    </li>
+        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <p className="text-sm leading-6">{description}</p>
+          <p className="text-sm leading-6">{uniqueKey}</p>
+        </div>
+      </li>
+    </Link>
   );
 }

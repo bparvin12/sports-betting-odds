@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 
 import SportCategories from '@/components/sport-categories';
 
-async function getSportsCategories() {
+export async function getSportsCategories() {
   // https://app.swaggerhub.com/apis-docs/the-odds-api/odds-api/4#/
   try {
     const params = new URLSearchParams({

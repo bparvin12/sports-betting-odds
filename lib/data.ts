@@ -15,23 +15,23 @@ export const links = [
   },
   {
     name: 'nfl',
-    src: 'nfl',
+    src: 'americanfootball_nfl_super_bowl_winner',
   },
   {
     name: 'nba',
-    src: 'nba',
+    src: 'basketball_nba',
   },
   {
     name: 'nhl',
-    src: 'nhl',
+    src: 'icehockey_nhl',
   },
   {
-    name: 'epl',
-    src: 'epl',
+    name: 'mlb',
+    src: 'baseball_mlb_preseason',
   },
   {
-    name: 'pga',
-    src: 'pga',
+    name: 'mma',
+    src: 'mma_mixed_martial_arts',
   },
 ] as const;
 
