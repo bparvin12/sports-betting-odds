@@ -30,7 +30,7 @@ export default function SportCategory({
         </div>
         <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
           <p className="text-sm leading-6">{description}</p>
-          <p className="text-sm leading-6">{uniqueKey}</p>
+          {/* <p className="text-sm leading-6">{uniqueKey}</p> */}
         </div>
       </li>
     </Link>
