@@ -24,13 +24,13 @@ async function getOdds(sport: string): Promise<SportOddsType[]> {
     });
     const response = await fetch(
       `https://api.the-odds-api.com/v4/sports/${sport}/odds?${params}`,
-      { cache: 'no-store' },
+      // { cache: 'no-store' },
     );
     console.log(response);
     // if (!response.ok) {
     //   throw new Error('Network response was not ok');
     // }
-    return await response.json();
+    return (await response.json()) ?? [];
   } catch (error) {
     console.error('Error fetching sports data:', error);
     throw error;
@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <main className="flex flex-col items-center px-4">
       <Suspense fallback={<p>Loading feed...</p>}>
         <OddsTable
-          sportTitle={sportOdds?.[0].sport_title}
+          sportTitle={sportOdds?.[0]?.sport_title}
           sportOdds={sportOdds}
         />
       </Suspense>
