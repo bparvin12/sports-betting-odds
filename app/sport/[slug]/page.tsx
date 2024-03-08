@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
 
 import { getSportsCategories } from '@/app/page';
+import OddsTable from '@/components/odds-table';
 import type { SportsEvent } from '@/components/sport-category';
 import { links } from '@/lib/data';
+import type { SportOddsType } from '@/lib/types';
 
 export const dynamicParams = false;
 export const dynamic = 'force-static';
@@ -11,13 +13,13 @@ interface SportsEventWithKey extends Omit<SportsEvent, 'uniqueKey'> {
   key: string;
 }
 
-async function getOdds(sport: string) {
+async function getOdds(sport: string): Promise<SportOddsType[]> {
   // https://app.swaggerhub.com/apis-docs/the-odds-api/odds-api/4#/current%20events/get_v4_sports__sport__odds
   try {
     const params = new URLSearchParams({
       apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY}`,
       regions: 'us',
-      // markets: 'h2h,spreads',
+      markets: 'h2h,spreads',
       oddsFormat: 'american',
     });
     const response = await fetch(
@@ -41,10 +43,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex flex-col items-center px-4">
       <Suspense fallback={<p>Loading feed...</p>}>
-        <h1>Slug: {params.slug}</h1>
-        {sportOdds.map((sport: any) => (
-          <h2 key={sport.id}>{sport.sport_title}</h2>
-        ))}
+        <OddsTable
+          sportTitle={sportOdds?.[0].sport_title}
+          sportOdds={sportOdds}
+        />
       </Suspense>
     </main>
   );

@@ -51,7 +51,7 @@ export default function SportCategories({
       <div className="flex flex-row flex-wrap justify-between gap-12">
         {Object.entries(groupedSports).map(([sportKey, sportsArray]) => (
           <React.Fragment key={sportKey}>
-            <div className="flex min-w-72 grow flex-col justify-center gap-4 divide-y divide-tan overflow-hidden rounded-lg border border-policeBlue bg-policeBlue p-4 text-white transition  dark:divide-white dark:border-black/5 dark:bg-white/10 dark:text-white   lg:justify-start">
+            <div className="flex min-w-72 grow flex-col justify-center gap-4 divide-y divide-tan overflow-hidden rounded-lg border border-policeBlue bg-policeBlue p-4 text-white transition  dark:divide-white dark:border-black/5 dark:bg-white/10 dark:text-white lg:justify-start">
               <h1 className="uppercase">{sportKey}</h1>
               <ul
                 role="list"
