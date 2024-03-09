@@ -17,7 +17,8 @@ async function getOdds(sport: string): Promise<SportOddsType[]> {
   // https://app.swaggerhub.com/apis-docs/the-odds-api/odds-api/4#/current%20events/get_v4_sports__sport__odds
   try {
     const params = new URLSearchParams({
-      apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY}`,
+      // apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY}`,
+      apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY_BACKUP_1}`,
       regions: 'us',
       markets: 'h2h,spreads',
       oddsFormat: 'american',

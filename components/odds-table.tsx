@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { MARKETS } from '@/lib/constants';
 import type { SportOddsType } from '@/lib/types';
 import { formatTimestamp } from '@/lib/utils';
 
@@ -11,13 +12,12 @@ type OddsTableProps = {
 };
 
 export default function OddsTable({ sportTitle, sportOdds }: OddsTableProps) {
-  console.log(sportOdds);
   if (sportTitle === undefined || sportOdds.length === 0)
     return <SectionHeading>Odds not available</SectionHeading>;
   return (
     <table className="w-full table-auto border-collapse border border-gray-200">
       {/* Table Header */}
-      <thead className="border border-gray-200 bg-sky-900">
+      <thead className="border border-gray-200 bg-sky-900/90">
         <tr className="uppercase">
           <th
             className="border border-gray-200 p-4 md:w-1/6 lg:w-1/5"
@@ -34,15 +34,20 @@ export default function OddsTable({ sportTitle, sportOdds }: OddsTableProps) {
             {/* Row for Sport and Date */}
             <tr key={sportOdd.id} className="sticky top-24 z-50 bg-sky-900">
               <td
-                className="p-2 align-top md:col-span-1 lg:col-span-1"
+                className="flex w-full justify-evenly p-2 align-top md:col-span-1 lg:col-span-1"
                 colSpan={2}
               >
-                <div>{sportOdd.home_team}</div>
-                <div>{sportOdd.away_team}</div>
+                <div className="border-bg-white grow border-r px-2">
+                  <div>{sportOdd.home_team}</div>
+                  <div>{sportOdd.away_team}</div>
+                </div>
+                <div className="grow px-2 text-sm sm:text-base">
+                  {formatTimestamp(sportOdd.commence_time)}
+                </div>
               </td>
-              <td className=" p-2 align-top">
-                {formatTimestamp(sportOdd.commence_time)}
-              </td>
+              {/* <td className=" p-2 align-top">
+                
+              </td> */}
             </tr>
             {/* Row for Odds */}
             <tr className="">
@@ -50,17 +55,24 @@ export default function OddsTable({ sportTitle, sportOdds }: OddsTableProps) {
                 className=" p-2 align-top md:col-span-2 lg:col-span-2"
                 colSpan={3}
               >
+                {/* Bookmaker */}
                 {sportOdd.bookmakers.map((bookmaker) => (
                   <div
-                    className="my-2 flex w-full flex-wrap justify-stretch"
+                    className="flex w-full flex-wrap justify-stretch border-b-2 border-dashed border-tan py-2 even:bg-slate-300/10"
                     key={bookmaker.key}
                   >
+                    {/* bookmaker name column */}
                     <div className="basis-1/5">{bookmaker.title}</div>
-                    <div className="flex flex-row gap-2 divide-dashed divide-tan md:basis-4/5 md:divide-y">
+                    {/* Bookmaker odds */}
+                    <div className="flex flex-row gap-2 md:basis-4/5">
                       {bookmaker.markets.map((market) => (
-                        <div className="flex flex-col" key={market.key}>
-                          <div className="underline">{market.key}</div>
-                          <div className="flex flex-auto grow gap-2">
+                        <div className="flex grow flex-col" key={market.key}>
+                          {/* odds type name */}
+                          <div className="underline">
+                            {MARKETS?.[market.key as keyof typeof MARKETS]}
+                          </div>
+                          {/* odds type outcomes */}
+                          <div className="flex flex-auto gap-2">
                             {market.outcomes.map((outcome) => (
                               <div
                                 className="flex flex-col text-xs"
