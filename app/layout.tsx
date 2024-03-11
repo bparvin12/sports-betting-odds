@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'typescript',
     'portfolio',
   ],
-  themeColor: 'dark',
+  themeColor: 'policeBlue',
   creator: 'biaji',
   openGraph: {
     type: 'website',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     emails: 'bparvin12@gmail.com',
     siteName: 'Sports Betting Odds | { biaji }',
     locale: 'en-US',
-    url: 'https://bijan-parvin-portfolio-fe.vercel.app/',
+    // url: 'https://bijan-parvin-portfolio-fe.vercel.app/',
   },
   twitter: {
     site: 'Sports Betting Odds | { biaji }',

@@ -13,14 +13,18 @@ type OddsTableProps = {
 
 export default function OddsTable({ sportTitle, sportOdds }: OddsTableProps) {
   if (sportTitle === undefined || sportOdds.length === 0)
-    return <SectionHeading>Odds not available</SectionHeading>;
+    return (
+      <SectionHeading>
+        Odds not available. Sport may be out of season.
+      </SectionHeading>
+    );
   return (
-    <table className="w-full table-auto border-collapse border border-gray-200">
+    <table className="w-full table-auto border-collapse border border-policeBlue/70 dark:border-gray-200">
       {/* Table Header */}
-      <thead className="border border-gray-200 bg-sky-900/90">
+      <thead className="border border-policeBlue/70 bg-policeBlue text-white dark:border-gray-200 dark:bg-sky-900/90">
         <tr className="uppercase">
           <th
-            className="border border-gray-200 p-4 md:w-1/6 lg:w-1/5"
+            className="border border-policeBlue/70 p-4 dark:border-gray-200 md:w-1/6 lg:w-1/5"
             colSpan={3}
           >
             {sportTitle}
@@ -34,7 +38,7 @@ export default function OddsTable({ sportTitle, sportOdds }: OddsTableProps) {
             {/* Row for Sport and Date */}
             <tr key={sportOdd.id} className="sticky top-24 z-50 bg-sky-900">
               <td
-                className="flex w-full justify-evenly p-2 align-top md:col-span-1 lg:col-span-1"
+                className="flex w-full justify-evenly p-2 align-top text-white md:col-span-1 lg:col-span-1"
                 colSpan={2}
               >
                 <div className="border-bg-white grow border-r px-2">

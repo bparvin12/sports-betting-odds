@@ -31,7 +31,7 @@ export function formatTimestamp(timestamp: string) {
   // Get parts of the date
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const day = date.getDate().toString().padStart(2, '0');
-  const year = date.getFullYear();
+  const year = date.getFullYear().toString().substring(2);
   const hours = date.getHours() % 12 || 12; // Convert to 12-hour format
   const minutes = date.getMinutes().toString().padStart(2, '0');
   const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
