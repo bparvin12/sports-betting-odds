@@ -14,8 +14,6 @@ export default function SportCategory({
   uniqueKey,
   title,
   description,
-  active,
-  has_outrights,
 }: SportsEvent) {
   return (
     <Link href={`/sport/${uniqueKey}`}>
