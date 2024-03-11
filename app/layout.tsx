@@ -29,7 +29,6 @@ export const metadata: Metadata = {
     'typescript',
     'portfolio',
   ],
-  themeColor: 'policeBlue',
   creator: 'biaji',
   openGraph: {
     type: 'website',

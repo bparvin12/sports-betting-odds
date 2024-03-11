@@ -28,7 +28,11 @@ async function getOdds(sport: string): Promise<SportOddsType[]> {
       // { cache: 'no-store' },
     );
 
-    return (await response.json()) ?? [];
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      return (await response.json()) ?? [];
+    }
+    throw new Error('Response is not in JSON format');
   } catch (error) {
     console.error('Error fetching sports data:', error);
     throw error;
@@ -36,17 +40,26 @@ async function getOdds(sport: string): Promise<SportOddsType[]> {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const sportOdds = await getOdds(params.slug);
-  return (
-    <main className="flex flex-col items-center px-4">
-      <Suspense fallback={<p>Loading feed...</p>}>
-        <OddsTable
-          sportTitle={sportOdds?.[0]?.sport_title}
-          sportOdds={sportOdds}
-        />
-      </Suspense>
-    </main>
-  );
+  try {
+    const sportOdds = await getOdds(params.slug);
+    return (
+      <main className="flex flex-col items-center px-4">
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <OddsTable
+            sportTitle={sportOdds?.[0]?.sport_title}
+            sportOdds={sportOdds}
+          />
+        </Suspense>
+      </main>
+    );
+  } catch (error) {
+    console.error('Error fetching sports data:', error);
+    return (
+      <main className="flex flex-col items-center px-4">
+        <p>Error fetching sports data. Please try again later.</p>
+      </main>
+    );
+  }
 }
 
 export async function generateStaticParams() {
