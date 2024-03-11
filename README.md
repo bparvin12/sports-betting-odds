@@ -1,6 +1,6 @@
-# Bijan Parvin's Portfolio built with Next.js (App Rotuer), Tailwind CSS 3 and TypeScript 
+# Sports Betting Odds Dashboard built with Next.js (App Router), Tailwind CSS 3 and TypeScript 
 
-🚀 Portfolio in Next.js (App router), Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Vercel, PostCSS, Tailwind CSS.
+🚀 A website used to display sports betting odds in Next.js (App router), Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Vercel, PostCSS, Tailwind CSS.
 
 ## Table of Contents
 - [Features](#features)
@@ -69,8 +69,8 @@ Run the following command on your local environment:
 
 For working inside this git remote repo
 ```
-git clone git@github.com:bparvin12/BijanParvin_Portfolio_FE.git BijanParvin_Portfolio_FE
-cd BijanParvin_Portfolio_FE
+git clone git@github.com:bparvin12/sports-betting-odds.git sports-betting-odds
+cd sports-betting-odds
 npm install
 ```
 
