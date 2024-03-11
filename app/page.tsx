@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
 
 import SportCategories from '@/components/sport-categories';
+import { ODDS_API_KEY_ROTATION } from '@/lib/constants';
 
 export async function getSportsCategories() {
   // https://app.swaggerhub.com/apis-docs/the-odds-api/odds-api/4#/
   try {
     const params = new URLSearchParams({
-      apiKey: `${process.env.NEXT_PUBLIC_ODDS_API_KEY}`,
+      apiKey: `${ODDS_API_KEY_ROTATION[1]}`,
       all: 'false',
     });
     const response = await fetch(

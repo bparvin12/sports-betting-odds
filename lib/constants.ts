@@ -6,6 +6,6 @@ export const MARKETS = {
 };
 
 export const ODDS_API_KEY_ROTATION = [
-  process.env.NEXT_PUBLIC_ODDS_API_KEY,
-  process.env.NEXT_PUBLIC_ODDS_API_KEY_BACKUP_1,
+  process.env.ODDS_API_KEY,
+  process.env.ODDS_API_KEY_BACKUP_1,
 ];
