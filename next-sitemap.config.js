@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://bijan-parvin-portfolio-fe.vercel.app/',
+  siteUrl: 'https://sports-betting-odds.vercel.app/',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   generateIndexSitemap: false,
